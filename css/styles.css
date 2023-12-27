@@ -1,0 +1,66 @@
+:root{
+    --bs-dark-navbar-bg: #262525;
+}
+
+body{
+    margin: 0rem;
+    background-color: rgb(233, 34, 34);
+}
+
+.nav-container{
+    min-height: 3rem;
+    width: auto;
+}
+nav-link :active{
+    color: aqua;
+}
+
+.sect{
+    padding: 4rem;
+}
+
+.top-container{
+    background-color: #95d3dd;
+
+}
+
+.experience-container{
+    background-color: #ffcf95;
+}
+
+.skills-container{
+    background-color: #f6ffa3;
+}
+
+.box{
+    border-radius: 10px;
+    background-color: rgb(119, 255, 221);
+    height: 2rem;
+}
+
+.box:hover{
+    background-color: rgb(156, 142, 107);
+    transform: scale(1.1);
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+}
+
+.project-container{
+    background-color: #ffadad;
+}
+
+.contact-container{
+    background-color: #fff1d3;
+}
+.contact-bg{
+    background-color: rgb(211 209 255);
+
+}
+
+.navbar-dark{
+  background-color: var(--bs-dark-navbar-bg) !important;
+
+}
+
+.card-footer{
+    background-color:rgb(255 168 168) !important;
+}
