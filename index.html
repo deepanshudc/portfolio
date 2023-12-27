@@ -168,24 +168,27 @@
                         <p class="fs-5">Do fill the form on right and will contact right away!</p> 
                 </div>
                 <div class="col-md-6 contact-bg my-3 p-3 rounded">
-                    <form class="row  ">
+                    <form  name="submit-to-google-sheet" >
                         <div class="col-md-12">
                             <label for="visitorName" class="form-label">Name</label>
-                            <input type="text" class="form-control" id="visitorName">
+                            <input  name="name" type="text" class="form-control" id="visitorName" required>
                         </div>
                         <div class="col-md-12">
                             <label for="inputEmail4" class="form-label">Email</label>
-                            <input type="email" class="form-control" id="inputEmail4">
+                            <input name="email" type="email" class="form-control" id="inputEmail4" required>
                         </div>
                         <div class="col-md-12">
-                            <label for="message" class="form-label">Message</label>
-                            <input type="text" class="form-control" id="message">
+                            <label for="message1" class="form-label">Message</label>
+                            <input name="message" type="text" class="form-control" id="message1" required>
                         </div>
                         <br>
                         <div class="col-6">
                             <br>
                             <button type="submit" class="btn btn-primary">Submit</button>
+                            <br>
+                            <h5<span id="msg"></span></h5>
                         </div>
+                        
                   </form> 
                 </div>
          </div>     
@@ -194,6 +197,25 @@
         © Copyright 2024. Made by <u>Deepanshu Chugh</u>
     </footer> 
     <script>
+        window.onload=function(){
+            const scriptURL = 'https://script.google.com/macros/s/AKfycbyakMmL4qofo6MbfVcZWb5G56kolATgKqOY452lFF7DyuvF4blcBrdEiB6rdRGj6UOv/exec'
+        const form = document.forms['submit-to-google-sheet']
+        form.addEventListener('submit', e => {
+            e.preventDefault()
+            fetch(scriptURL, { method: 'POST', body: new FormData(form)})
+            .then(response =>
+            {
+                msg.innerHTML="Thank you for your message!"
+                setTimeout(function(){
+                    msg.innerHTML=""
+                },5000)
+                form.reset()
+            })
+            .catch(error => {
+                msg.innerHtml="An error occured: "+ error.message;
+            })
+        })   
+    }
        function activateNavItem(element) {
         // Remove the 'active' class from all nav-items within the entire document
         document.querySelectorAll('.nav-link').forEach(function(item) {

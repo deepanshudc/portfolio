@@ -64,3 +64,7 @@ nav-link :active{
 .card-footer{
     background-color:rgb(255 168 168) !important;
 }
+
+#msg{
+    color: #262525;
+}
